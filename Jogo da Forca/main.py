@@ -74,12 +74,12 @@ while True:
 
     letra = input("\nDigite uma letra: ")
 
-    if letra in "abcdefghijklmnopqrstuvwxyz" and letra != '' and len(letra) == 1:
+    if letra.lower() in "abcdefghijklmnopqrstuvwxyz" and letra != '' and len(letra) == 1:
         letra = letra.lower()
         if letra in palavra_sem_acento:
             for vezes in range(0, tamanho_palavra):
                 if letra == palavra_sem_acento[vezes]:
-                    adivinhar_palavra[vezes] = palavra[vezes]
+                    adivinhar_palavra[vezes] = palavra[vezes].upper()
         else:
             vida = vida -1
             print(f"Esta letra não pertence a palavra escolhida.")
@@ -95,9 +95,9 @@ while True:
     # Fim de jogo
     if vida == 0:
         print("GAME OVER")
-        print(f"A palavra escolhida era {palavra}")
+        print(f"A palavra escolhida era {palavra.upper()}")
         break    
     if '_' not in adivinhar_palavra:
-        print(palavra, end='')
+        print(palavra.upper(), end='')
         print("Parabéns, você ganhou!!")
         break
